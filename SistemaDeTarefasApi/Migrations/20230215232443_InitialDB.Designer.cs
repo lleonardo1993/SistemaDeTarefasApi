@@ -11,7 +11,7 @@ using SistemaDeTarefasApi.Data;
 namespace SistemaDeTarefasApi.Migrations
 {
     [DbContext(typeof(SistemaTarefasDBContext))]
-    [Migration("20230215225121_InitialDB")]
+    [Migration("20230215232443_InitialDB")]
     partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
