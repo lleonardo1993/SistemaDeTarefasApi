@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SistemaDeTarefasApi.Models;
 using SistemaDeTarefasApi.Repositorios.Interfaces;
 
@@ -35,6 +34,24 @@ namespace SistemaDeTarefasApi.Controllers
             UsuarioModel usuario = await _usuarioRepositorio.Adicionar(usuarioModel);
 
             return Ok(usuario);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<UsuarioModel>> Atualizar([FromBody] UsuarioModel usuarioModel, int id)
+        {
+            usuarioModel.Id = id;
+            UsuarioModel usuario = await _usuarioRepositorio.Atualizar(usuarioModel, id);
+
+            return Ok(usuario);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<UsuarioModel>> Apagar(int id)
+        {
+            
+            bool apagado = await _usuarioRepositorio.Apagar(id);
+
+            return Ok(apagado);
         }
     }
 }
